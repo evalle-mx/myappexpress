@@ -1,3 +1,11 @@
+/*  
+####################################################################
+#			Building a simple REST API with NodeJS and Express.
+#			Onejohi Jun 28, 2018 [NodeJS, HTTP REST, express, route, nodemon ]
+#   https://medium.com/@onejohi/building-a-simple-rest-api-with-nodejs-and-express-da6273ed7ca9
+####################################################################
+*/
+
 /* //Default HTTP configuration
  const http = require('http');
 
@@ -18,36 +26,11 @@ app.use(express.urlencoded({ extended: true }));
 // const bodyParser = require('body-parser');
 // app.use( bodyParser.urlencoded ({extended : false}));
 // app.use(bodyParser.json());
-
 // By checking the version: $ npm view express version
 
-var users = [{name:'Dianita', email:'di@mail.com'}]
-
+app.use('/', require('./routes/users'));
 
 app.listen(port, () => {
     console.log(`Express Server Running on port ${port}`);
 })
 
-app
-.get('/', (_, resp) => {
-    resp.send('App Express online');
-})
-// .get("/url", (req, res, next) => {
-//     res.json(["Tony","Lisa","Michael","Ginger","Food"]);
-// })
-.get('/users', (_, resp) => {
-    resp.json({ok:true, users });
-})
-.get('/user/:name', (req, resp) => {
-    const {name}= req.params;
-    const user = users.filter( (user) => user.name === name )[0]; //First user with that name
-    resp.json( {ok:true, user });
-})
-.post('/adduser', (req, resp) => {
-    const {name, email } = req.body;
-    if(name && email ){
-        users.push({name, email} );
-        resp.json({ok:true, users}); 
-    }
-})
-;
