@@ -1,8 +1,6 @@
 /*  
 ####################################################################
 #			Building a simple REST API with NodeJS and Express.
-#			Onejohi Jun 28, 2018 [NodeJS, HTTP REST, express, route, nodemon ]
-#   https://medium.com/@onejohi/building-a-simple-rest-api-with-nodejs-and-express-da6273ed7ca9
 ####################################################################
 */
 
